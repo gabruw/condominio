@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.condominio.dto.OptionDTO;
@@ -29,6 +31,18 @@ public class CondominiumServiceImplementation implements CondominiumService {
 
 	@Autowired
 	private CondominiumRepository condominiumRepository;
+
+	@Override
+	public Page<CondominiumRDTO> findAll(Pageable pageable) {
+		log.info("Start - SectorServiceImplementation.findAll - Pageable: {}", pageable);
+
+		Page<Condominium> condominiums = this.condominiumRepository.findAll(pageable);
+		Page<CondominiumRDTO> condominiumsRPDTO = condominiums
+				.map(sector -> this.mapper.map(sector, CondominiumRDTO.class));
+
+		log.info("End - SectorServiceImplementation.findAll - Page<CondominiumRDTO>: {}", condominiumsRPDTO);
+		return condominiumsRPDTO;
+	}
 
 	@Override
 	public CondominiumRDTO findById(Long id) {

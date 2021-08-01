@@ -6,6 +6,10 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +36,26 @@ public class CondominiumController {
 
 	@Autowired
 	private CondominiumService condominiumService;
+
+	@Cacheable("sector")
+	@GetMapping
+	public ResponseEntity<Response<Page<CondominiumRDTO>>> findAll(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "size", defaultValue = "10") int pageSize,
+			@RequestParam(value = "order", defaultValue = "id") String order,
+			@RequestParam(value = "direction", defaultValue = "DESC") String direction) {
+		log.info("Start - SectorController.findAll - Page: {}, Size: {}, Order: {}, Direction: {}", page, pageSize,
+				order, direction);
+		Response<Page<CondominiumRDTO>> response = new Response<>();
+
+		Pageable pageable = PageRequest.of(page, pageSize, Direction.valueOf(direction), order);
+
+		Page<CondominiumRDTO> condominiums = this.condominiumService.findAll(pageable);
+		response.setData(condominiums);
+
+		log.info("End - SectorController.findAll - Page<CondominiumRDTO>: {}", condominiums);
+		return ResponseEntity.ok(response);
+	}
 
 	@Cacheable("condominium")
 	@GetMapping(params = "id")
