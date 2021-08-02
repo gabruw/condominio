@@ -84,9 +84,11 @@ const Table = ({ fetch, onClickEdit, onClickRemove, columns = [], rows = [], pag
                     </TableMaterial>
                 </TableContainer>
 
-                <div className={styles.footer}>
-                    <TablePagination fetch={fetch} pageable={pageable} />
-                </div>
+                {pageable && (
+                    <div className={styles.footer}>
+                        <TablePagination fetch={fetch} pageable={pageable} />
+                    </div>
+                )}
             </Paper>
         </Fragment>
     );

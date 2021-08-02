@@ -40,7 +40,7 @@ public class SecurityServiceImplementation implements SecurityService {
 
 		String token = this.securityProcessor.authenticate(loginDTO.getEmail(), loginDTO.getPassword());
 		TokenFRDTO tokenFRDTO = TokenFRDTO.builder().name(authentication.getUser().getName()).token(token)
-				.roles(authentication.getRole()).build();
+				.unity(authentication.getUser().getUnity()).roles(authentication.getRole()).build();
 
 		log.info("End - SecurityServiceImplementation.login - TokenFRDTO: {}", tokenFRDTO);
 		return tokenFRDTO;

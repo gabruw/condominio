@@ -5,14 +5,13 @@ import SYSTEM_FIELDS from 'utils/constants/fields/system';
 
 //#endregion
 
-const { TOKEN, NAME, ROLE } = SYSTEM_FIELDS;
-
 const SystemContext = createContext();
 
 const initialState = {
-    [ROLE]: null,
-    [NAME]: null,
-    [TOKEN]: null,
+    [SYSTEM_FIELDS.ROLE]: null,
+    [SYSTEM_FIELDS.NAME]: null,
+    [SYSTEM_FIELDS.TOKEN]: null,
+    [SYSTEM_FIELDS.UNITY]: null,
     topMenuFetch: null
 };
 
@@ -25,7 +24,7 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
     );
 
     const setLogin = useCallback(
-        ({ roles, name, token }) => setState((prevState) => ({ ...prevState, roles, name, token })),
+        ({ roles, name, token, unity }) => setState((prevState) => ({ ...prevState, roles, name, token, unity })),
         [setState]
     );
 

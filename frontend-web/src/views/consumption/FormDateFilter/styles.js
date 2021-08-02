@@ -6,15 +6,15 @@ import ALIGN from 'assets/styles/align';
 //#endregion
 
 const useStyles = makeStyles({
-    form: {
-        height: 600,
+    container: {
+        marginTop: 30,
         width: '100%',
-        ...ALIGN.BETWEEN,
-        flexDirection: 'column',
-        paddingBottom: 50
+        ...ALIGN.CENTER
     },
-    title: {
-        marginBottom: 45
+    content: {
+        width: '80%',
+        ...ALIGN.BETWEEN,
+        alignItems: 'center'
     }
 });
 

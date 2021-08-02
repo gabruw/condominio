@@ -9,12 +9,12 @@ import ENDPOINT from 'services/endpoint';
 const useGetData = () => {
     const api = useApi();
 
-    const getFindById = useCallback((data) => api.get(ENDPOINT.CONDOMINIUM.FIND_BY_ID(data)), [api]);
+    const getFindById = useCallback((data) => api.get(ENDPOINT.CONSUMPTION.FIND_BY_ID(data)), [api]);
 
     const getFindByUnity = useCallback((data) => api.get(ENDPOINT.CONSUMPTION.FIND_BY_UNITY(data)), [api]);
 
     const postFindAllByReadDateBetweenAndUnity = useCallback(
-        (data) => api.post(ENDPOINT.CONDOMINIUM.THIS, data),
+        (data) => api.post(ENDPOINT.CONSUMPTION.FIND_BY_READ_DATE_BETWEEN_AND_UNITY, data),
         [api]
     );
 

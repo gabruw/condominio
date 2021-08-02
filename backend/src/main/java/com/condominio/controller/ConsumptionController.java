@@ -60,7 +60,7 @@ public class ConsumptionController {
 	}
 
 	@Cacheable("consumption")
-	@GetMapping
+	@PostMapping(value = "/read-date")
 	public ResponseEntity<Response<List<ConsumptionRDTO>>> findByReadDateBetweenAndUnity(
 			@RequestBody @Valid ConsumptionFADTO consumptionFADTO) {
 		log.info("Start - ConsumptionController.findByReadDateBetweenAndUnity - ConsumptionFADTO: {}",

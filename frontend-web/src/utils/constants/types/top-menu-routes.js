@@ -14,6 +14,11 @@ const TOP_MENU_ROUTES = [
         name: 'Condominios',
         route: PRIVATE_ROUTES.CONDOMINIUM,
         auth: 'ADMINISTRATOR'
+    },
+    {
+        name: 'Consumo',
+        route: PRIVATE_ROUTES.CONSUMPTION,
+        auth: null
     }
 ];
 

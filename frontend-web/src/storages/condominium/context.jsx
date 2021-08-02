@@ -20,7 +20,10 @@ export const CondominiumContextProvider = ({ children, defaultValues }) => {
     const modalRef = useRef(null);
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
-    const setCondominium = useCallback((sector) => setState((prevState) => ({ ...prevState, sector })), [setState]);
+    const setCondominium = useCallback(
+        (condominium) => setState((prevState) => ({ ...prevState, condominium })),
+        [setState]
+    );
 
     const setCondominiums = useCallback(
         (data) =>

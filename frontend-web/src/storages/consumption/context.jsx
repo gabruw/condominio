@@ -20,18 +20,16 @@ export const ConsumptionContextProvider = ({ children, defaultValues }) => {
     const modalRef = useRef(null);
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
-    const setConsumption = useCallback((sector) => setState((prevState) => ({ ...prevState, sector })), [setState]);
+    const setConsumption = useCallback(
+        (consumption) => setState((prevState) => ({ ...prevState, consumption })),
+        [setState]
+    );
 
     const setConsumptions = useCallback(
         (data) =>
             setState((prevState) => ({
                 ...prevState,
-                [CONSUMPTION_FIELDS.CONSUMPTIONS]: data.content,
-                [PAGEABLE_FIELDS.THIS]: {
-                    ...data[PAGEABLE_FIELDS.THIS],
-                    [PAGEABLE_FIELDS.TOTAL_PAGES]: data[PAGEABLE_FIELDS.TOTAL_PAGES],
-                    [PAGEABLE_FIELDS.TOTAL_ELEMENTS]: data[PAGEABLE_FIELDS.TOTAL_ELEMENTS]
-                }
+                [CONSUMPTION_FIELDS.CONSUMPTIONS]: data
             })),
         [setState]
     );

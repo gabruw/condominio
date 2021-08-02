@@ -36,11 +36,11 @@ const useConsumptionService = ({ setConsumption, setConsumptions }) => {
     const fetchFindByUnity = useCallback(
         async (form) => {
             const response = await run(() => getFindByUnity(form));
-            setConsumption(response.data);
+            setConsumptions(response.data);
 
             return response;
         },
-        [run, getFindByUnity, setConsumption]
+        [run, getFindByUnity, setConsumptions]
     );
 
     const fetchFindAllByReadDateBetweenAndUnity = useCallback(

@@ -5,6 +5,6 @@ import CONDOMINIUM_LABELS from 'utils/constants/labels/condominium';
 
 //#endregion
 
-const SECTOR_COLMUNS = [{ label: CONDOMINIUM_LABELS.NAME, field: CONDOMINIUM_FIELDS.NAME }];
+const CONDOMINIUM_COLMUNS = [{ label: CONDOMINIUM_LABELS.NAME, field: CONDOMINIUM_FIELDS.NAME }];
 
-export default SECTOR_COLMUNS;
+export default CONDOMINIUM_COLMUNS;

@@ -1,6 +1,6 @@
 const CONSUMPTION_FIELDS = {
     THIS: 'consumption',
-    CONDOMINIUMS: 'consumptions',
+    CONSUMPTIONS: 'consumptions',
     READ: 'read',
     READ_DATE: 'readDate',
     HYDROMETER_SERIAL: 'hydrometerSerial'

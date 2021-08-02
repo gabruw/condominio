@@ -2,6 +2,7 @@
 
 import Authentication from 'views/authentication';
 import Condominium from 'views/condominium';
+import Consumption from 'views/consumption';
 import User from 'views/user';
 import ROUTE_NAME from './route-name';
 
@@ -17,6 +18,11 @@ const ROUTES = [
         exact: true,
         path: ROUTE_NAME.CONDOMINIUM,
         component: Condominium
+    },
+    {
+        exact: true,
+        path: ROUTE_NAME.CONSUMPTION,
+        component: Consumption
     },
     {
         exact: true,

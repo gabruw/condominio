@@ -4,7 +4,8 @@ export const PUBLIC_ROUTES = {
 
 export const PRIVATE_ROUTES = {
     USER: '/user',
-    CONDOMINIUM: '/condominium'
+    CONDOMINIUM: '/condominium',
+    CONSUMPTION: '/consumption'
 };
 
 const ROUTE_NAME = {
