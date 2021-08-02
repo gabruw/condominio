@@ -3,11 +3,13 @@
 import AlertBox from 'components/AlertBox';
 import Button from 'components/Button';
 import ModalCrud from 'components/ModalCrud';
+import FieldsAddress from 'form-fields/FieldsAddress';
 import FieldsCondominiun from 'form-fields/FieldsCondominiun';
-import React, { useCallback } from 'react';
-import useFormContext, { FormContextProvider } from 'storages/form/context';
+import React, { useCallback, useMemo } from 'react';
 import useCondominiumContext from 'storages/condominium/context';
-import CONDOMINIUM_FIELDS from 'utils/constants/fields/condominium';
+import useFormContext, { FormContextProvider } from 'storages/form/context';
+import formatSendAddress from 'utils/validations/formater/address';
+import addressSchema from 'utils/validations/yup/schemas/address';
 import condominiumSchema from 'utils/validations/yup/schemas/condominium';
 import useStyles from './styles';
 
@@ -16,10 +18,12 @@ import useStyles from './styles';
 const Content = () => {
     const styles = useStyles();
 
-    const { handleSubmit, setValue } = useFormContext();
-    const { sector, modalRef, setSector, fetchInclude, fetchFindAll, requestState, clear } = useCondominiumContext();
+    const { handleSubmit } = useFormContext();
+    const { modalRef, setCondominium, fetchInclude, fetchFindAll, requestState, clear } = useCondominiumContext();
 
     const onSubmit = async (data) => {
+        data = formatSendAddress(data);
+
         const { errors } = await fetchInclude(data);
         if (!errors.length) {
             await fetchFindAll();
@@ -27,21 +31,16 @@ const Content = () => {
         }
     };
 
-    const handleOpenModal = useCallback(() => {
-        if (sector) {
-            setValue(CONDOMINIUM_FIELDS.NAME, sector[CONDOMINIUM_FIELDS.NAME]);
-        }
-    }, [sector, setValue]);
-
     const handleCloseModal = useCallback(() => {
-        setSector();
+        setCondominium();
         clear();
-    }, [setSector, clear]);
+    }, [setCondominium, clear]);
 
     return (
-        <ModalCrud modalRef={modalRef} title='Criar setor' onOpen={handleOpenModal} onClose={handleCloseModal}>
+        <ModalCrud modalRef={modalRef} title='Criar condomínio' onClose={handleCloseModal}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <FieldsCondominiun />
+                <FieldsAddress />
 
                 <AlertBox widthAuto errors={requestState.errors} />
 
@@ -53,14 +52,14 @@ const Content = () => {
     );
 };
 
-const FormSector = () => {
-    const { sector } = useCondominiumContext();
+const FormCondominium = () => {
+    const schema = useMemo(() => condominiumSchema.concat(addressSchema), [condominiumSchema, addressSchema]);
 
     return (
-        <FormContextProvider schema={condominiumSchema} defaultValues={sector}>
+        <FormContextProvider schema={schema}>
             <Content />
         </FormContextProvider>
     );
 };
 
-export default FormSector;
+export default FormCondominium;

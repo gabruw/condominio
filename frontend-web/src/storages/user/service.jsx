@@ -7,8 +7,8 @@ import useSendData from './services/useSendData';
 
 //#endregion
 
-const useUserService = () => {
-    const { run, requestState } = useRequestState();
+const useUserService = ({ setUser }) => {
+    const { run, requestState, clear } = useRequestState();
 
     const { postIncludeResident } = useSendData();
     const { setLogin } = useSystemContext();
@@ -25,8 +25,10 @@ const useUserService = () => {
     );
 
     return {
-        requestState,
-        includeRegister
+        clear,
+        setUser,
+        includeRegister,
+        requestState
     };
 };
 

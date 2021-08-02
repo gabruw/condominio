@@ -1,6 +1,6 @@
 //#region Imports
 
-import FieldInput from 'containers/FieldInput/index';
+import FieldInput from 'components/FieldInput';
 import React, { Fragment } from 'react';
 import ADDRESS_FIELDS from 'utils/constants/fields/address';
 import ADDRESS_LABELS from 'utils/constants/labels/address';

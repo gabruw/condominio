@@ -7,14 +7,23 @@ import USER_FIELDS from 'utils/constants/fields/user';
 import AUTHENTICATION_LABELS from 'utils/constants/labels/authentication';
 import USER_LABELS from 'utils/constants/labels/user';
 import USER_PLACEHOLDERS from 'utils/constants/placeholders/user';
+import cell from 'utils/validations/masks/cell';
+import cpf from 'utils/validations/masks/cpf';
+import maxLength from 'utils/validations/masks/maxLength';
 import FieldCondomonium from './FieldCondomonium/index';
+import FieldGender from './FieldGender';
 
 //#endregion
 
 const FieldsUser = () => (
     <Fragment>
-        <FieldInput type='text' name={USER_FIELDS.NAME} label={USER_LABELS.NAME} placeholder={USER_PLACEHOLDERS.NAME} />
+        <FieldInput name={USER_FIELDS.NAME} label={USER_LABELS.NAME} mask={(value) => maxLength(value, 50)} />
+        <FieldInput name={USER_FIELDS.UNITY} label={USER_LABELS.UNITY} mask={(value) => maxLength(value, 10)} />
 
+        <FieldInput name={USER_FIELDS.CPF} label={USER_LABELS.CPF} mask={cpf} />
+        <FieldInput name={USER_FIELDS.CELL} label={USER_LABELS.CELL} mask={cell} />
+
+        <FieldGender />
         <FieldCondomonium />
 
         <FieldInput

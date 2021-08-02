@@ -9,7 +9,7 @@ import ENDPOINT from 'services/endpoint';
 const useSendData = () => {
     const api = useApi();
 
-    const postIncludeResident = useCallback((data) => api.post(ENDPOINT.USER.THIS, data), [api]);
+    const postIncludeResident = useCallback((data) => api.post(ENDPOINT.USER.INCLUDE_RESIDENT, data), [api]);
 
     return {
         postIncludeResident

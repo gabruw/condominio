@@ -6,16 +6,12 @@ import { PRIVATE_ROUTES } from 'routes/route-name';
 
 const TOP_MENU_ROUTES = [
     {
-        name: 'Formulários',
-        route: PRIVATE_ROUTES.FORM
+        name: 'Usuários',
+        route: PRIVATE_ROUTES.USER
     },
     {
-        name: 'Setores',
-        route: PRIVATE_ROUTES.SECTOR
-    },
-    {
-        name: 'Categorias',
-        route: PRIVATE_ROUTES.CATEGORY
+        name: 'Condominios',
+        route: PRIVATE_ROUTES.CONDOMINIUM
     }
 ];
 

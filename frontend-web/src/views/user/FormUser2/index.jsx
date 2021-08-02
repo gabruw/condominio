@@ -27,7 +27,7 @@ const Content = () => {
             data = userRegisterFormater(data);
 
             const { errors } = await includeRegister(data);
-            !errors.length && history.push(ROUTE_NAME.HOME);
+            !errors.length && history.push(ROUTE_NAME.CONDOMINIUM);
         },
         [includeRegister, history]
     );

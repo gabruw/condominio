@@ -31,7 +31,7 @@ const Content = () => {
 
                 <Typography className={styles.withoutAccount}>
                     Não possui conta?
-                    <Typography className={styles.register} onClick={() => history.push(ROUTE_NAME.USER.REGISTER)}>
+                    <Typography className={styles.register} onClick={() => history.push(ROUTE_NAME.USER)}>
                         Cadastre-se
                     </Typography>
                 </Typography>

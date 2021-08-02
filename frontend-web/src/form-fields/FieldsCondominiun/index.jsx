@@ -7,8 +7,6 @@ import CONDOMINIUM_LABELS from 'utils/constants/labels/condominium';
 
 //#endregion
 
-const FieldsCondominiun = () => (
-    <FieldInput type='text' name={CONDOMINIUM_FIELDS.NAME} label={CONDOMINIUM_LABELS.NAME} />
-);
+const FieldsCondominiun = () => <FieldInput name={CONDOMINIUM_FIELDS.NAME} label={CONDOMINIUM_LABELS.THIS} />;
 
 export default FieldsCondominiun;

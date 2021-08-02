@@ -1,8 +1,8 @@
 //#region Imports
 
 import Authentication from 'views/authentication';
-import Sector from 'views/sector';
-import UserRegister from 'views/user/register';
+import Condominium from 'views/condominium';
+import User from 'views/user';
 import ROUTE_NAME from './route-name';
 
 //#endregion
@@ -15,8 +15,8 @@ const ROUTES = [
     },
     {
         exact: true,
-        path: ROUTE_NAME.SECTOR,
-        component: Sector
+        path: ROUTE_NAME.CONDOMINIUM,
+        component: Condominium
     },
     {
         exact: true,
@@ -25,8 +25,8 @@ const ROUTES = [
     },
     {
         exact: true,
-        path: ROUTE_NAME.USER.REGISTER,
-        component: UserRegister
+        path: ROUTE_NAME.USER,
+        component: User
     },
     {
         path: '*',

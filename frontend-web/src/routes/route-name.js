@@ -1,15 +1,10 @@
 export const PUBLIC_ROUTES = {
-    ERROR: '/error',
-    AUTHENTICATION: '/authentication',
-    USER: {
-        REGISTER: '/register'
-    }
+    AUTHENTICATION: '/authentication'
 };
 
 export const PRIVATE_ROUTES = {
-    FORM: '/form',
-    SECTOR: '/sector',
-    CATEGORY: '/category'
+    USER: '/user',
+    CONDOMINIUM: '/condominium'
 };
 
 const ROUTE_NAME = {

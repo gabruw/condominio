@@ -23,7 +23,7 @@ const Content = () => {
     const onSubmit = useCallback(
         async (data) => {
             const { errors } = await fetchLogin(data);
-            !errors.length && history.push(ROUTE_NAME.FORM);
+            !errors.length && history.push(ROUTE_NAME.CONDOMINIUM);
         },
         [fetchLogin, history]
     );

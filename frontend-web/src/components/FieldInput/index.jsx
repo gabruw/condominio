@@ -47,8 +47,8 @@ const FieldInput = ({
     }, [name, errors]);
 
     const handleChange = useCallback(
-        (value) => {
-            value = mask ? mask(value) : value;
+        (event) => {
+            const value = mask ? mask(event.target.value) : event.target.value;
             field.onChange(value);
         },
         [mask, field]
