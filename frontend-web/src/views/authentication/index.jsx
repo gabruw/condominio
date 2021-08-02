@@ -28,13 +28,6 @@ const Content = () => {
                 </Typography>
 
                 <AlertBox title='Erro ao efetuar login' errors={requestState.errors} />
-
-                <Typography className={styles.withoutAccount}>
-                    Não possui conta?
-                    <Typography className={styles.register} onClick={() => history.push(ROUTE_NAME.USER)}>
-                        Cadastre-se
-                    </Typography>
-                </Typography>
             </ContainerBox>
         </div>
     );

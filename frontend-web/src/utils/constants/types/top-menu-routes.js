@@ -7,11 +7,13 @@ import { PRIVATE_ROUTES } from 'routes/route-name';
 const TOP_MENU_ROUTES = [
     {
         name: 'Usuários',
-        route: PRIVATE_ROUTES.USER
+        route: PRIVATE_ROUTES.USER,
+        auth: 'ADMINISTRATOR'
     },
     {
         name: 'Condominios',
-        route: PRIVATE_ROUTES.CONDOMINIUM
+        route: PRIVATE_ROUTES.CONDOMINIUM,
+        auth: 'ADMINISTRATOR'
     }
 ];
 
