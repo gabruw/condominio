@@ -41,9 +41,9 @@ public class Consumption implements Serializable {
 	@NotNull(message = "O campo 'Número de Série do Hidrometro' é obrigatório")
 	private BigInteger hydrometerSerial;
 
-	@Column(name = "read", nullable = false)
+	@Column(name = "revision", nullable = false)
 	@NotNull(message = "O campo 'Leitura' é obrigatório")
-	private Long read;
+	private Long revision;
 
 	@Column(name = "readDate", nullable = false)
 	@NotNull(message = "O campo 'Data da leitura' é obrigatório")
