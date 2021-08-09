@@ -53,7 +53,7 @@ const Content = () => {
 };
 
 const FormCondominium = () => {
-    const schema = useMemo(() => condominiumSchema.concat(addressSchema), [condominiumSchema, addressSchema]);
+    const schema = useMemo(() => condominiumSchema.concat(addressSchema), []);
 
     return (
         <FormContextProvider schema={schema}>

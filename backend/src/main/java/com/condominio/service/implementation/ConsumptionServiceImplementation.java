@@ -10,9 +10,12 @@ import org.springframework.stereotype.Service;
 import com.condominio.dto.consumption.ConsumptionFADTO;
 import com.condominio.dto.consumption.ConsumptionPDTO;
 import com.condominio.dto.consumption.ConsumptionRDTO;
+import com.condominio.dto.consumption.GeneralReportDTO;
+import com.condominio.entity.Condominium;
 import com.condominio.entity.Consumption;
 import com.condominio.repository.ConsumptionRepository;
 import com.condominio.service.ConsumptionService;
+import com.condominio.service.processor.CondominiumProcessor;
 import com.condominio.service.processor.ConsumptionProcessor;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +31,9 @@ public class ConsumptionServiceImplementation implements ConsumptionService {
 	private ConsumptionProcessor consumptionProcessor;
 
 	@Autowired
+	private CondominiumProcessor condominiumProcessor;
+
+	@Autowired
 	private ConsumptionRepository consumptionRepository;
 
 	@Override
@@ -41,6 +47,26 @@ public class ConsumptionServiceImplementation implements ConsumptionService {
 		log.info("End - ConsumptionServiceImplementation.findAllByUnity - List<ConsumptionRPDTO>: {}",
 				consumptionsRDTO);
 		return consumptionsRDTO;
+	}
+
+	@Override
+	public List<GeneralReportDTO> findAllByCondominium(String condominiumName) {
+		log.info("Start - ConsumptionServiceImplementation.findAllByCondominium - Condominium Name: {}",
+				condominiumName);
+
+		Condominium condominium = this.condominiumProcessor.exists(condominiumName);
+		List<GeneralReportDTO> generalReportsDTO = condominium.getUser().stream().map(user -> {
+			Long total = 0L;
+			for (Consumption consumption : user.getConsumption()) {
+				total += consumption.getRevision();
+			}
+
+			return GeneralReportDTO.builder().unity(user.getUnity()).total(total).build();
+		}).collect(Collectors.toList());
+
+		log.info("End - ConsumptionServiceImplementation.findAllByCondominium - List<GeneralReportDTO>: {}",
+				generalReportsDTO);
+		return generalReportsDTO;
 	}
 
 	@Override

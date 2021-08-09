@@ -5,7 +5,8 @@ export const PUBLIC_ROUTES = {
 export const PRIVATE_ROUTES = {
     USER: '/user',
     CONDOMINIUM: '/condominium',
-    CONSUMPTION: '/consumption'
+    CONSUMPTION_GENERAL_REPORT: '/consumption-general-report',
+    CONSUMPTION_INDIVIDUAL_REPORT: '/consumption-individual-report'
 };
 
 const ROUTE_NAME = {

@@ -3,7 +3,8 @@ const SYSTEM_FIELDS = {
     NAME: 'name',
     ROLE: 'roles',
     TOKEN: 'token',
-    UNITY: 'unity'
+    UNITY: 'unity',
+    CONDOMINIUM: 'condominium'
 };
 
 export default SYSTEM_FIELDS;

@@ -26,7 +26,7 @@ public class ConsumptionRDTO implements Serializable {
 	private BigInteger hydrometerSerial;
 
 	@NotNull(message = "O campo 'Leitura' é obrigatório")
-	private Long read;
+	private Long revision;
 
 	@NotNull(message = "O campo 'Data da leitura' é obrigatório")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")

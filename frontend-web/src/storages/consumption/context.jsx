@@ -1,7 +1,6 @@
 //#region Imports
 
 import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
-import PAGEABLE_FIELDS from 'utils/constants/fields/pageable';
 import CONSUMPTION_FIELDS from 'utils/constants/fields/consumption';
 import CONTEXT_INITIAL_STATE from 'utils/constants/types/context-initial-state';
 import useConsumptionService from './service';

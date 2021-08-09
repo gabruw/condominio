@@ -16,9 +16,14 @@ const TOP_MENU_ROUTES = [
         auth: 'ADMINISTRATOR'
     },
     {
-        name: 'Consumo',
-        route: PRIVATE_ROUTES.CONSUMPTION,
+        name: 'Consumo Individual',
+        route: PRIVATE_ROUTES.CONSUMPTION_INDIVIDUAL_REPORT,
         auth: null
+    },
+    {
+        name: 'Consumo Geral',
+        route: PRIVATE_ROUTES.CONSUMPTION_GENERAL_REPORT,
+        auth: 'ADMINISTRATOR'
     }
 ];
 

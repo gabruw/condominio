@@ -22,7 +22,8 @@ const ENDPOINT = {
         THIS: 'consumption',
         FIND_BY_READ_DATE_BETWEEN_AND_UNITY: 'consumption/read-date',
         FIND_BY_ID: (id) => `consumption?${buildQueryParams({ id })}`,
-        FIND_BY_UNITY: (unity) => `condominium?${buildQueryParams({ unity })}`
+        FIND_BY_UNITY: (unity) => `consumption?${buildQueryParams({ unity })}`,
+        FIND_ALL_BY_CONDOMINIUM: (condominium) => `consumption?${buildQueryParams({ condominium })}`
     }
 };
 

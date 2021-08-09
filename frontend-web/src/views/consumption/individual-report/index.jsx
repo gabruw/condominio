@@ -3,7 +3,8 @@
 import Table from 'components/Table';
 import React, { Fragment } from 'react';
 import useConsumptionContext, { ConsumptionContextProvider } from 'storages/consumption/context';
-import CONSUMPTION_COLMUNS from 'utils/constants/columns/consumption';
+import { CONSUMPTION_INDIVIDUAL_REPORT_COLMUNS } from 'utils/constants/columns/consumption';
+import ChartIndividualConsumption from './components/ChartIndividualConsumption';
 import FormDateFilter from './FormDateFilter';
 
 //#endregion
@@ -14,15 +15,17 @@ const Content = () => {
     return (
         <Fragment>
             <FormDateFilter />
-            <Table rows={consumptions} fetch={fetch} pageable={null} columns={CONSUMPTION_COLMUNS} />
+
+            <ChartIndividualConsumption />
+            <Table rows={consumptions} fetch={fetch} pageable={null} columns={CONSUMPTION_INDIVIDUAL_REPORT_COLMUNS} />
         </Fragment>
     );
 };
 
-const Consumption = () => (
+const ConsumptionIndividualReport = () => (
     <ConsumptionContextProvider>
         <Content />
     </ConsumptionContextProvider>
 );
 
-export default Consumption;
+export default ConsumptionIndividualReport;

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.condominio.dto.consumption.ConsumptionFADTO;
 import com.condominio.dto.consumption.ConsumptionPDTO;
 import com.condominio.dto.consumption.ConsumptionRDTO;
+import com.condominio.dto.consumption.GeneralReportDTO;
 import com.condominio.service.ConsumptionService;
 import com.condominio.util.Response;
 
@@ -56,6 +57,19 @@ public class ConsumptionController {
 		response.setData(consumptions);
 
 		log.info("End - ConsumptionController.findAllByUnity - List<ConsumptionRDTO>: {}", consumptions);
+		return ResponseEntity.ok(response);
+	}
+
+	@Cacheable("consumption")
+	@GetMapping(params = "condominium")
+	public ResponseEntity<Response<List<GeneralReportDTO>>> findAllByCondominium(@RequestParam String condominium) {
+		log.info("Start - ConsumptionController.findAllByCondominium - Condominium: {}", condominium);
+		Response<List<GeneralReportDTO>> response = new Response<>();
+
+		List<GeneralReportDTO> consumptions = this.consumptionService.findAllByCondominium(condominium);
+		response.setData(consumptions);
+
+		log.info("End - ConsumptionController.findAllByCondominium - List<GeneralReportDTO>: {}", consumptions);
 		return ResponseEntity.ok(response);
 	}
 

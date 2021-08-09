@@ -1,5 +1,5 @@
 const CONSUMPTION_LABELS = {
-    READ: 'Leitura',
+    REVISION: 'Leitura',
     READ_DATE: 'Data da Leitura',
     HYDROMETER_SERIAL: 'Número de Série do Hidrometro'
 };

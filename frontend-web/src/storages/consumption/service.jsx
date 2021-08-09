@@ -11,7 +11,7 @@ const useConsumptionService = ({ setConsumption, setConsumptions }) => {
     const { run, requestState, clear } = useRequestState();
 
     const { postInclude } = useSendData();
-    const { getFindById, getFindByUnity, postFindAllByReadDateBetweenAndUnity } = useGetData();
+    const { getFindById, getFindByUnity, getFindAllByCondominium, postFindAllByReadDateBetweenAndUnity } = useGetData();
 
     const fetchInclude = useCallback(
         async (form) => {
@@ -43,6 +43,16 @@ const useConsumptionService = ({ setConsumption, setConsumptions }) => {
         [run, getFindByUnity, setConsumptions]
     );
 
+    const fetchFindAllByCondominium = useCallback(
+        async (form) => {
+            const response = await run(() => getFindAllByCondominium(form));
+            response.data && setConsumptions(response.data);
+
+            return response;
+        },
+        [run, getFindAllByCondominium, setConsumptions]
+    );
+
     const fetchFindAllByReadDateBetweenAndUnity = useCallback(
         async (form) => {
             const response = await run(() => postFindAllByReadDateBetweenAndUnity(form));
@@ -58,6 +68,7 @@ const useConsumptionService = ({ setConsumption, setConsumptions }) => {
         fetchInclude,
         fetchFindById,
         fetchFindByUnity,
+        fetchFindAllByCondominium,
         fetchFindAllByReadDateBetweenAndUnity,
         setConsumption,
         setConsumptions,

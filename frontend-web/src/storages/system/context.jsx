@@ -12,6 +12,7 @@ const initialState = {
     [SYSTEM_FIELDS.NAME]: null,
     [SYSTEM_FIELDS.TOKEN]: null,
     [SYSTEM_FIELDS.UNITY]: null,
+    [SYSTEM_FIELDS.CONDOMINIUM]: null,
     topMenuFetch: null
 };
 
@@ -24,7 +25,8 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
     );
 
     const setLogin = useCallback(
-        ({ roles, name, token, unity }) => setState((prevState) => ({ ...prevState, roles, name, token, unity })),
+        ({ roles, name, token, unity, condominium }) =>
+            setState((prevState) => ({ ...prevState, roles, name, token, unity, condominium })),
         [setState]
     );
 

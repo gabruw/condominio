@@ -31,6 +31,9 @@ public class TokenFRDTO implements Serializable {
 	
 	@NotBlank(message = "O campo 'Unidade' é obrigatório")
 	private String unity;
+	
+	@NotBlank(message = "O campo 'Condomínio' é obrigatório")
+	private String condominium;
 
 	@NotNull(message = "O campo 'Cargos' é obrigatório")
 	private List<AuthenticationRole> roles;
